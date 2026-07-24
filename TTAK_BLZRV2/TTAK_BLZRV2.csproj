@@ -61,16 +61,35 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Content Remove="appsettings.json" />
+      <!--<Content Remove="wwwroot\chinook\Chinook_Sqlite.sqlite" />-->
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiAsset Include="appsettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </MauiAsset>
+      <MauiAsset Include="Data\Chinook_SQLite.sqlite" LogicalName="Chinook_Sqlite.sqlite">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </MauiAsset>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="EntityFramework" Version="6.5.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.32" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.9" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
         <PackageReference Include="sqlite-net-pcl" Version="1.11.285" />
     </ItemGroup>
 
     <ItemGroup>
-      <Content Update="wwwroot\chinook\Chinook_Sqlite.sqlite">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
+      <ProjectReference Include="..\SbAdmin2.Data\SbAdmin2.Data.csproj" />
+      <ProjectReference Include="..\SbAdmin2.Service\SbAdmin2.Service.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Content Update="wwwroot\sqljs\sql-wasm.js">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
@@ -80,6 +99,14 @@
       <Content Update="wwwroot\sqljs\sqljsInterop.js">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EditorConfigFiles Remove="D:\GithubRepo24\TTAK_BLZRV2\TTAK_BLZRV2\.editorconfig" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="D:\GithubRepo24\TTAK_BLZRV2\TTAK_BLZRV2\.editorconfig" />
     </ItemGroup>
 
 </Project>
